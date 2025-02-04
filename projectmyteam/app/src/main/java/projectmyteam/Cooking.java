@@ -23,12 +23,20 @@ class Cooking {
         System.out.println("Order canceled for: " + orderedFood);
     }
 
-    public boolean checkIngrediant(String orderedFood) {
-        // Placeholder
-        return true;
+    public boolean checkIngrediant() {
+        if (totalIngrediant != null && !totalIngrediant.isEmpty()) {
+            System.out.println("Ingredients available for: " + orderedFood);
+            return true;
+        } else {
+            System.out.println("Not enough ingredients for: " + orderedFood);
+            return false;
+        }
     }
 
-    public void updateIngrediant(String foodIngrediant) {
-        System.out.println("Ingredient updated: " + foodIngrediant);
+    public void updateIngrediant(String newIngrediant, int quantity) {
+        this.foodIngrediant = newIngrediant;
+        this.quantityIngrediant = quantity;
+        this.totalIngrediant = (this.totalIngrediant == null ? "" : this.totalIngrediant + ", ") + newIngrediant;
+        System.out.println("Updated ingredients: " + this.totalIngrediant);
     }
 }
