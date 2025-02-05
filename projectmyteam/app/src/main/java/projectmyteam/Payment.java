@@ -1,6 +1,6 @@
 package projectmyteam;
 
-class Payment {
+public class Payment {
     private float totalPrice;
     private float userPaid;
 
