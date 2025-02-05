@@ -1,6 +1,6 @@
 package projectmyteam;
 
-class Order {
+public class Order {
     private String orderUser;
     private String orderFood;
     private int orderQuantity;
