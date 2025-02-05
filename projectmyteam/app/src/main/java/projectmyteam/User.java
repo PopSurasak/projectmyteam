@@ -1,6 +1,6 @@
 package projectmyteam;
 
-class User {
+public class User {
     private String username;
     private float userBalance;
 
