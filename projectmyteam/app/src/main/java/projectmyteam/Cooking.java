@@ -1,6 +1,6 @@
 package projectmyteam;
 
-class Cooking {
+public class Cooking {
     private String orderedFood;
     private String foodIngrediant;
     private String totalIngrediant;
