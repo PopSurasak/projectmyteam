@@ -2,7 +2,7 @@ package projectmyteam;
 
 import java.util.HashMap;
 
-class Restaurant {
+public class Restaurant {
     private String restaurantName;
     private String foodName;
     private String foodIngrediant;
