@@ -19,14 +19,6 @@ public class User {
         }
     }
 
-    public void changeName(String username) {
-        if (username != null && !username.trim().isEmpty()) {
-            this.username = username;
-        } else {
-            System.out.println("So your name is empty?");
-        }
-    }
-
     public void addBalance(float balance) {
         if (balance > 0) {
             this.userBalance += balance;
