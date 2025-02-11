@@ -11,8 +11,7 @@ public class LoginUI {
         TextField usernameField = new TextField();
         PasswordField passwordField = new PasswordField();
         Button loginButton = new Button("Login");
-        Button registerButton = new Button("Register");
-        Label messageLabel = new Label();
+        Button registerButton = new Button("Create Account");
     }
 }
 
