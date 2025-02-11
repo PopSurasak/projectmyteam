@@ -2,33 +2,34 @@ package projectmyteam;
 
 public class User {
     private String username;
-    private float userBalance;
+    private String password;
+    private double balance;
 
-    public User(String username, float balance) {
-        if (username != null && !username.trim().isEmpty()) {
+    public User(String username, String password, double balance) {
+        if (username != null && !username.trim().isEmpty()) && (password != null && !password.trim().isEmpty()) {
             this.username = username;
+            this.password = password;
+            this.balance = balance;
         } else {
-            System.out.println("Invalid username.");
-        }
-
-        if (balance >= 0) {
-            this.userBalance = balance;
-        } else {
-            System.out.println("Imagine having negative balance");
-            this.userBalance = balance;
+            System.out.println("Invalid");
         }
     }
 
-    public void addBalance(float balance) {
-        if (balance > 0) {
-            this.userBalance += balance;
+    public void addBalance(double amount) {
+        if (amount > 0) {
+            this.balance += amount;
+            Database.saveUsers();
         } else {
-            System.out.println("What are you doing?");
+            System.out.println("Invalid");
         }
     }
 
-    public void printUserInfo() {
-        System.out.println("Username: " + username);
-        System.out.println("Balance: $" + userBalance);
+    public void removeBalance(double amount) {
+        if (amount < balance) {
+            this.balance -= amount;
+            Database.saveUsers();
+        } else {
+            System.out.println("Invalid");
+        }
     }
 }
