@@ -6,17 +6,11 @@ public class Order {
     private int orderQuantity;
     private float orderPrice;
 
-    public void setOrderUser(String orderUser) {
+    public void setOrderUser(String orderUser, String orderFood, int orderQuantity, float orderPrice) {
         this.orderUser = orderUser;
-    }
-
-    public void setOrderInfo(String orderFood, int orderQuantity) {
         this.orderFood = orderFood;
         this.orderQuantity = orderQuantity;
-    }
-
-    public void setOrderPrice(float unitPrice) {
-        this.orderPrice = unitPrice * orderQuantity;
+        this.orderPrice = orderPrice;
     }
 
     public void printOrderDetails() {
