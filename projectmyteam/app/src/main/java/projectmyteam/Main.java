@@ -12,4 +12,8 @@ public class Main {
     public void start(Stage primaryStage) {
         new LoginUI(primaryStage)
     }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
