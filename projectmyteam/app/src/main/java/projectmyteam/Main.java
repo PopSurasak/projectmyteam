@@ -10,6 +10,6 @@ public class Main {
     public static void account(String[] args) {
     @override
     public void start(Stage primaryStage) {
-        new 
+        new LoginUI(primaryStage)
     }
 }
