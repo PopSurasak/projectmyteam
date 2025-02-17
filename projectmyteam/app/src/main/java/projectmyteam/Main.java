@@ -15,4 +15,19 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    public class Main {
+        public static void main(String[] args) {
+            ReservationSystem reservationSystem = new ReservationSystem(5);
+    
+            reservationSystem.reserveTable(2);
+            reservationSystem.reserveTable(3);
+            reservationSystem.displayAvailableTables();
+    
+            reservationSystem.cancelReservation(2);
+            reservationSystem.displayAvailableTables();
+        }
+    }
+    
+
 }
