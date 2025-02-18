@@ -10,29 +10,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PromotionUI {
-    private ListView<String> promoListView; // แสดงรายการโปรโมชั่น
-    private List<String> promoList; // เก็บข้อมูลโปรโมชั่น
+    private ListView<String> promoListView;
+    private List<String> promoList;
 
     public PromotionUI(Stage primaryStage) {
         promoList = new ArrayList<>();
         promoListView = new ListView<>();
 
         VBox root = new VBox(10);
+        root.setStyle("-fx-padding: 5;" + "-fx-background-color: linear-gradient(to bottom, rgb(236, 228, 11),rgba(240, 12, 12, 0.41));");
         root.setPadding(new Insets(10));
+        root.requestFocus();
+        root.setOnMouseClicked(e -> root.requestFocus());
 
-        // 🔹 Drop-down เลือกเมนูอาหาร
         ComboBox<String> foodMenu = new ComboBox<>();
         foodMenu.getItems().addAll("🍕 Pizza", "🍔 Burger", "🍣 Sushi", "🥗 Salad");
         foodMenu.setPromptText("Select a Food Item");
 
-        // 🔹 Drop-down เลือกราคา
         ComboBox<String> priceMenu = new ComboBox<>();
         priceMenu.getItems().addAll("100", "200", "300", "400");
         priceMenu.setPromptText("Select Price");
 
-        // ✅ ปุ่ม "ลดราคา"
-        Button discountButton = new Button("ลดราคา");
-        discountButton.setStyle("-fx-background-color: #28a745; -fx-text-fill: white; -fx-font-weight: bold;");
+        Button discountButton = new Button("Add Discount");
+        discountButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;");
+        discountButton.setOnMouseEntered(e -> discountButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-weight: bold;"));
+        discountButton.setOnMouseExited(e -> discountButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;"));
+
+        Button removeButton = new Button("Remove Discount");
+        removeButton.setStyle("-fx-background-color:rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold;");
+        removeButton.setOnMouseEntered(e -> removeButton.setStyle("-fx-background-color: rgb(200, 20, 5); -fx-text-fill: white; -fx-font-weight: bold;"));
+        removeButton.setOnMouseExited(e -> removeButton.setStyle("-fx-background-color: rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold;"));    
+
+        Button backButton = new Button("Back");
+        backButton.setStyle("-fx-background-color:rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold;");
+        backButton.setOnMouseEntered(e -> backButton.setStyle("-fx-background-color: rgb(200, 20, 5); -fx-text-fill: white; -fx-font-weight: bold;"));
+        backButton.setOnMouseExited(e -> backButton.setStyle("-fx-background-color: rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold;"));
+
         discountButton.setOnAction(e -> {
             String food = foodMenu.getValue();
             String price = priceMenu.getValue();
@@ -43,9 +56,6 @@ public class PromotionUI {
             }
         });
 
-        // ✅ ปุ่ม "ลบโปรโมชัน"
-        Button removeButton = new Button("ลบโปรโมชัน");
-        removeButton.setStyle("-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;");
         removeButton.setOnAction(e -> {
             String selectedPromo = promoListView.getSelectionModel().getSelectedItem();
             if (selectedPromo != null) {
@@ -54,22 +64,18 @@ public class PromotionUI {
             }
         });
 
-        // ✅ ปุ่ม "ย้อนกลับ"
-        Button backButton = new Button("ย้อนกลับ");
-        backButton.setStyle("-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-weight: bold;");
         backButton.setOnAction(e -> {
             new RestaurantUI(primaryStage, null);
         });
 
-        // Layout
         HBox selectBox = new HBox(5, foodMenu, priceMenu);
-        VBox promoBox = new VBox(5, promoListView, removeButton);
-        root.getChildren().addAll(selectBox, discountButton, promoBox, backButton);
+        HBox buttonBox = new HBox(10, discountButton, removeButton);
+        VBox promoBox = new VBox(5, promoListView);
 
+        root.getChildren().addAll(selectBox, buttonBox, promoBox, backButton);
         primaryStage.setScene(new Scene(root, 300, 300));
-        primaryStage.setTitle("Promotion Manager");
+        primaryStage.setTitle("Promotion Manager"); 
         primaryStage.setResizable(false);
-        primaryStage.show();
-        
+        primaryStage.show();    
     }
 }
