@@ -12,6 +12,8 @@ public class WorkerUI {
     public WorkerUI(Stage primaryStage) {
         VBox root = new VBox(10);
         root.setStyle("-fx-padding: 5;" + "-fx-background-color: linear-gradient(to bottom, rgb(11, 22, 236),rgba(187, 12, 240, 0.41));");
+        root.requestFocus();
+        root.setOnMouseClicked(e -> root.requestFocus());
 
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10, 10, 10, 10));
@@ -24,6 +26,8 @@ public class WorkerUI {
 
         Button BackButton = new Button("Back");
         BackButton.setStyle("-fx-background-color:rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold;");
+        BackButton.setOnMouseEntered(e -> BackButton.setStyle("-fx-background-color: rgb(200, 20, 5); -fx-text-fill: white; -fx-font-weight: bold;"));
+        BackButton.setOnMouseExited(e -> BackButton.setStyle("-fx-background-color: rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold;"));
         BackButton.setId("BackButton");
 
         // HBox buttonBox = new HBox(10, AddFoodButton, MenuButton);
@@ -35,6 +39,7 @@ public class WorkerUI {
         root.getChildren().addAll(WorkerLabel, BackButton);
         primaryStage.setTitle("Worker Manager");
         primaryStage.setScene(new Scene(root, 300, 200));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }
