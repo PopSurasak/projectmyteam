@@ -30,19 +30,22 @@ public class LoginUI {
         passwordLabel.setStyle("-fx-font-weight: bold;");
             
         TextField usernameField = new TextField();
+        usernameField.setStyle("-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: gray; " + "-fx-border-width: 1px;");
         usernameField.setPromptText("Enter username");
         usernameField.setId("usernameField");
         
         PasswordField passwordField = new PasswordField();
+        passwordField.setStyle("-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: gray; " + "-fx-border-width: 1px;");
         passwordField.setPromptText("Enter password");
         passwordField.setId("passwordField");
 
         TextField visiblePasswordField = new TextField();
+        visiblePasswordField.setStyle("-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: gray; " + "-fx-border-width: 1px;");
         visiblePasswordField.setPromptText("Enter password");
         visiblePasswordField.setId("visiblePasswordField");
 
-        ToggleButton eyeButton = new ToggleButton("👁️");
-        eyeButton.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-font-size: 14px; -fx-padding: 0; -fx-pref-width: 20px; -fx-pref-height: 20px;");
+        ToggleButton eyeButton = new ToggleButton("👁");
+        eyeButton.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-font-size: 15px; -fx-padding: 0; -fx-pref-width: 25px; -fx-pref-height: 15px;");
         eyeButton.setFocusTraversable(false);
         eyeButton.setId("eyeButton");
 
@@ -102,7 +105,7 @@ public class LoginUI {
 
         root.getChildren().addAll(usernameLabel, usernameField, passwordLabel, passwordStack, buttonBox);
         primaryStage.setTitle("My Restaurant");
-        primaryStage.setScene(new Scene(root, 300, 165));
+        primaryStage.setScene(new Scene(root, 300, 168));
         primaryStage.setResizable(false);
         primaryStage.show();
     }

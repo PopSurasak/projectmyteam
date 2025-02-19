@@ -5,7 +5,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,18 +17,20 @@ public class PromotionUI {
         promoListView = new ListView<>();
 
         VBox root = new VBox(10);
-        root.setStyle("-fx-padding: 5;" + "-fx-background-color: linear-gradient(to bottom, rgb(236, 228, 11),rgba(240, 12, 12, 0.41));");
+        root.setStyle("-fx-padding: 5;" + "-fx-background-color: linear-gradient(to bottom, rgb(236, 228, 11),rgba(240, 115, 12, 0.96));");
         root.setPadding(new Insets(10));
         root.requestFocus();
         root.setOnMouseClicked(e -> root.requestFocus());
 
         ComboBox<String> foodMenu = new ComboBox<>();
+        foodMenu.setStyle("-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: gray; " + "-fx-border-width: 1px; -fx-background-insets: 0; -fx-padding: 0;");
         foodMenu.getItems().addAll("🍕 Pizza - 10$", "🍔 Burger - 5$", "🍣 Sushi - 30$", "🥗 Salad - 20$", "🍗 Fried Chicken - 10$");
-        foodMenu.setPromptText("Select Food Menu");
+        foodMenu.setPromptText("Food Menu");
 
         ComboBox<String> discountMenu = new ComboBox<>();
+        discountMenu.setStyle("-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: gray; " + "-fx-border-width: 1px; -fx-background-insets: 0; -fx-padding: 0;");
         discountMenu.getItems().addAll("Discount - 10%", "Discount - 20%","Discount - 30%", "Discount - 40%","Discount - 50%", "Discount - 60%","Discount - 70%", "Discount - 80%","Discount - 90%", "Discount - 99%");
-        discountMenu.setPromptText("Select Discount");
+        discountMenu.setPromptText("Discount");
 
         Button discountButton = new Button("Add Discount");
         discountButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
@@ -103,7 +104,7 @@ public class PromotionUI {
         VBox promoBox = new VBox(5, promoListView);
 
         root.getChildren().addAll(selectBox, buttonBox, promoBox, backButton);
-        primaryStage.setScene(new Scene(root, 300, 300));
+        primaryStage.setScene(new Scene(root, 300, 250));
         primaryStage.setTitle("Promotion Manager");
         primaryStage.setResizable(false);
         primaryStage.show();

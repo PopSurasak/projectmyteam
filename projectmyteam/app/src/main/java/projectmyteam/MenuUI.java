@@ -1,10 +1,10 @@
 package projectmyteam;
 
+import java.util.List;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -30,8 +30,6 @@ public class MenuUI {
         BackButton.setOnMouseExited(e -> BackButton.setStyle("-fx-background-color: rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         BackButton.setId("BackButton");
 
-        // HBox buttonBox = new HBox(10, AddFoodButton, MenuButton);
-
         BackButton.setOnAction(e -> {
             new RestaurantUI(primaryStage, null);
         });
@@ -43,4 +41,3 @@ public class MenuUI {
         primaryStage.show();
     }
 }
-

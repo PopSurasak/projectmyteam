@@ -1,5 +1,6 @@
 package projectmyteam;
 
+import java.util.ArrayList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -28,14 +29,16 @@ public class RestaurantUI {
         FoodPriceLabel.setStyle("-fx-font-weight: bold;");
 
         TextField FoodNameField = new TextField();
+        FoodNameField.setStyle("-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: gray; " + "-fx-border-width: 1px;");
         FoodNameField.setPromptText("Enter Name");
         FoodNameField.setId("FoodNameField");
 
         TextField FoodPriceField = new TextField();
+        FoodPriceField.setStyle("-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: gray; " + "-fx-border-width: 1px;");
         FoodPriceField.setPromptText("Enter Price");
         FoodPriceField.setId("FoodPriceField");
 
-        Button AddFoodButton = new Button("Add Food");
+        Button AddFoodButton = new Button("Add");
         AddFoodButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
         AddFoodButton.setOnMouseEntered(e -> AddFoodButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         AddFoodButton.setOnMouseExited(e -> AddFoodButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
@@ -53,26 +56,23 @@ public class RestaurantUI {
         WorkerButton.setOnMouseExited(e -> WorkerButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         WorkerButton.setId("WorkerButton");
 
-        Button PromotionButton = new Button("Promotion");
+        Button PromotionButton = new Button("Promo");
         PromotionButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
         PromotionButton.setOnMouseEntered(e -> PromotionButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         PromotionButton.setOnMouseExited(e -> PromotionButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         PromotionButton.setId("PromotionButton");
 
-        Button LogOutButton = new Button("Log out");
+        Button LogOutButton = new Button("Back");
         LogOutButton.setStyle("-fx-background-color:rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
         LogOutButton.setOnMouseEntered(e -> LogOutButton.setStyle("-fx-background-color: rgb(200, 20, 5); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         LogOutButton.setOnMouseExited(e -> LogOutButton.setStyle("-fx-background-color: rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         LogOutButton.setId("LogOutButton");
 
-        HBox buttonBox = new HBox(10, AddFoodButton, MenuButton, WorkerButton, PromotionButton);
+        HBox buttonBox = new HBox(10,LogOutButton, AddFoodButton, MenuButton, WorkerButton, PromotionButton);
 
         AddFoodButton.setOnAction(e -> {
             String name = FoodNameField.getText();
-            // Restaurant.addFood(name);
-
             double price = Double.parseDouble(FoodPriceField.getText());
-            // Restaurant.addPrice(price);
         });
 
         MenuButton.setOnAction(e -> {
@@ -91,9 +91,9 @@ public class RestaurantUI {
             new LoginUI(primaryStage);
         });
 
-        root.getChildren().addAll(FoodNameLabel, FoodNameField, FoodPriceLabel, FoodPriceField, buttonBox, LogOutButton);
+        root.getChildren().addAll(FoodNameLabel, FoodNameField, FoodPriceLabel, FoodPriceField, buttonBox);
         primaryStage.setTitle("Restaurant Manager");
-        primaryStage.setScene(new Scene(root, 300, 200));
+        primaryStage.setScene(new Scene(root, 300, 168));
         primaryStage.setResizable(false);
         primaryStage.show();
     }

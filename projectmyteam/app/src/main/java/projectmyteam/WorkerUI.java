@@ -5,7 +5,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,50 +22,42 @@ public class WorkerUI {
         root.requestFocus();
         root.setOnMouseClicked(e -> root.requestFocus());
 
-        // TextField สำหรับกรอกชื่อพนักงาน
         TextField workerNameField = new TextField();
+        workerNameField.setStyle("-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: gray; " + "-fx-border-width: 1px;");
         workerNameField.setPromptText("Enter Worker Name");
 
-        // ComboBox สำหรับเลือกตำแหน่ง
         ComboBox<String> roleComboBox = new ComboBox<>();
-        roleComboBox.getItems().addAll("Junior", "Senior", "Manager", "Cleaner", "CEO");
+        roleComboBox.setStyle("-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: gray; " + "-fx-border-width: 1px; -fx-background-insets: 0; -fx-padding: 0;");
+        roleComboBox.getItems().addAll("Cleaner", "Waiter", "Co-Chef", "Head Chef", "Manager", "CEO");
         roleComboBox.setPromptText("Select Role");
 
-        // ปุ่มสำหรับเพิ่มพนักงาน
         Button addButton = new Button("Add Worker");
         addButton.setStyle("-fx-background-color:rgb(38, 94, 168); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
         addButton.setOnMouseEntered(e -> addButton.setStyle("-fx-background-color:rgb(63, 199, 169); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         addButton.setOnMouseExited(e -> addButton.setStyle("-fx-background-color:rgb(94, 76, 175); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
 
-        // ปุ่มสำหรับลบพนักงาน
         Button removeButton = new Button("Remove Worker");
         removeButton.setStyle("-fx-background-color:rgb(150, 22, 182); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
         removeButton.setOnMouseEntered(e -> removeButton.setStyle("-fx-background-color: rgb(30, 182, 106); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         removeButton.setOnMouseExited(e -> removeButton.setStyle("-fx-background-color: rgb(43, 128, 197); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
 
-        // ปุ่มสำหรับย้อนกลับ
         Button backButton = new Button("Back");
-        backButton.setStyle("-fx-background-color:rgb(49, 139, 199); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
-        backButton.setOnMouseEntered(e -> backButton.setStyle("-fx-background-color: rgb(67, 241, 76); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
-        backButton.setOnMouseExited(e -> backButton.setStyle("-fx-background-color: rgb(52, 13, 126); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        backButton.setStyle("-fx-background-color:rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
+        backButton.setOnMouseEntered(e -> backButton.setStyle("-fx-background-color: rgb(200, 20, 5); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        backButton.setOnMouseExited(e -> backButton.setStyle("-fx-background-color: rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
 
-        // เวลากดปุ่ม"Add Worker"
         addButton.setOnAction(e -> {
-            String workerName = workerNameField.getText().trim(); // รับค่าจาก TextField
+            String workerName = workerNameField.getText().trim(); 
             String roleName = roleComboBox.getValue();
 
             if (!workerName.isEmpty() && roleName != null) {
                 String workerInfo = workerName + " - " + roleName;
                 workerList.add(workerInfo);
                 workerListView.getItems().setAll(workerList);
-                workerNameField.clear(); // ล้าง TextField หลังจากเพิ่ม
-            } else {
-                Alert alert = new Alert(Alert.AlertType.WARNING, "Please enter a valid worker name and select a role.");
-                alert.showAndWait();
+                workerNameField.clear();
             }
         });
 
-        // เวลากดปุ่ม "Remove Worker"
         removeButton.setOnAction(e -> {
             String selectedWorker = workerListView.getSelectionModel().getSelectedItem();
             if (selectedWorker != null) {
@@ -75,7 +66,6 @@ public class WorkerUI {
             }
         });
 
-        // เวลากดปุ่ม "Back"
         backButton.setOnAction(e -> {
             new RestaurantUI(primaryStage, null);
         });
@@ -85,7 +75,7 @@ public class WorkerUI {
         VBox workerBox = new VBox(5, workerListView);
 
         root.getChildren().addAll(selectBox, buttonBox, workerBox, backButton);
-        primaryStage.setScene(new Scene(root, 300, 300));
+        primaryStage.setScene(new Scene(root, 300, 250));
         primaryStage.setTitle("Worker Manager");
         primaryStage.setResizable(false);
         primaryStage.show();
