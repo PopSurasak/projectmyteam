@@ -62,7 +62,7 @@ public class LoginUI {
         bypassButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
         bypassButton.setOnMouseEntered(e -> bypassButton.setStyle("-fx-background-color:rgb(0, 41, 247); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         bypassButton.setOnMouseExited(e -> bypassButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
-        bypassButton.setId("createButton");
+        bypassButton.setId("bypassButton");
 
         HBox buttonBox = new HBox(10, loginButton, createButton, bypassButton);
 
