@@ -1,10 +1,12 @@
 package projectmyteam;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -34,20 +36,35 @@ public class LoginUI {
         PasswordField passwordField = new PasswordField();
         passwordField.setPromptText("Enter password");
         passwordField.setId("passwordField");
-        
+
+        TextField visiblePasswordField = new TextField();
+        visiblePasswordField.setPromptText("Enter password");
+        visiblePasswordField.setId("visiblePasswordField");
+
+        ToggleButton eyeButton = new ToggleButton("👁️");
+        eyeButton.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-font-size: 14px; -fx-padding: 0; -fx-pref-width: 20px; -fx-pref-height: 20px;");
+        eyeButton.setFocusTraversable(false);
+        eyeButton.setId("eyeButton");
+
         Button loginButton = new Button("Login");
-        loginButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;");
-        loginButton.setOnMouseEntered(e -> loginButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-weight: bold;"));
-        loginButton.setOnMouseExited(e -> loginButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;"));
+        loginButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
+        loginButton.setOnMouseEntered(e -> loginButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        loginButton.setOnMouseExited(e -> loginButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         loginButton.setId("loginButton");
         
         Button createButton = new Button("Create Account");
-        createButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;");
-        createButton.setOnMouseEntered(e -> createButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-weight: bold;"));
-        createButton.setOnMouseExited(e -> createButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;"));
+        createButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
+        createButton.setOnMouseEntered(e -> createButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        createButton.setOnMouseExited(e -> createButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         createButton.setId("createButton");
 
-        HBox buttonBox = new HBox(10, loginButton, createButton);
+        Button bypassButton = new Button("Bypass Login");
+        bypassButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
+        bypassButton.setOnMouseEntered(e -> bypassButton.setStyle("-fx-background-color:rgb(0, 41, 247); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        bypassButton.setOnMouseExited(e -> bypassButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        bypassButton.setId("createButton");
+
+        HBox buttonBox = new HBox(10, loginButton, createButton, bypassButton);
 
         loginButton.setOnAction(e -> {
             User user = Database.authenticate(usernameField.getText(), passwordField.getText());
@@ -59,7 +76,31 @@ public class LoginUI {
             new LoginUI(primaryStage);
         });
 
-        root.getChildren().addAll(usernameLabel, usernameField, passwordLabel, passwordField, buttonBox);
+        bypassButton.setOnAction(e -> {
+            new RestaurantUI(primaryStage, null);
+        });
+
+        eyeButton.setOnAction(e -> {
+            boolean showPassword = eyeButton.isSelected();
+            if (showPassword) {
+                visiblePasswordField.setText(passwordField.getText());
+                passwordField.setVisible(false);
+                visiblePasswordField.setVisible(true);
+            } else {
+                passwordField.setText(visiblePasswordField.getText());
+                visiblePasswordField.setVisible(false);
+                passwordField.setVisible(true);
+            }
+        });
+
+        StackPane passwordStack = new StackPane();
+        passwordStack.setAlignment(Pos.CENTER_RIGHT);
+        passwordStack.getChildren().addAll(passwordField, visiblePasswordField, eyeButton);
+        visiblePasswordField.setVisible(false);
+        visiblePasswordField.managedProperty().bind(visiblePasswordField.visibleProperty());
+        passwordField.managedProperty().bind(passwordField.visibleProperty());
+
+        root.getChildren().addAll(usernameLabel, usernameField, passwordLabel, passwordStack, buttonBox);
         primaryStage.setTitle("My Restaurant");
         primaryStage.setScene(new Scene(root, 300, 165));
         primaryStage.setResizable(false);

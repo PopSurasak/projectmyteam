@@ -11,7 +11,6 @@ public class Database {
     private static final String FILE_PATH = "users_encrypted.json";
     private static final Gson gson = new Gson();
 
-    // Load users from encrypted file when the app starts
     static {
         loadUsers();
     }
@@ -19,7 +18,7 @@ public class Database {
     public static boolean registerUser(String username, String password) {
         if (users.containsKey(username)) return false;
         users.put(username, new User(username, password, 0.0));
-        saveUsers(); // Save data after registration
+        saveUsers(); 
         return true;
     }
 
@@ -40,7 +39,7 @@ public class Database {
 
     public static void loadUsers() {
         File file = new File(FILE_PATH);
-        if (!file.exists()) return; // No file, start with empty data
+        if (!file.exists()) return;
 
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
             String encryptedData = reader.readLine();
@@ -53,6 +52,6 @@ public class Database {
             e.printStackTrace();
         }
 
-        if (users == null) users = new HashMap<>(); // Prevent null issues
+        if (users == null) users = new HashMap<>(); 
     }
 }

@@ -1,8 +1,5 @@
 package projectmyteam;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Promotion {
     private String description;
     private double discount;

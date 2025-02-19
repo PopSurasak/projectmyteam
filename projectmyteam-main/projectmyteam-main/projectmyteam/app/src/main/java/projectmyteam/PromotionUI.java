@@ -24,33 +24,63 @@ public class PromotionUI {
         root.setOnMouseClicked(e -> root.requestFocus());
 
         ComboBox<String> foodMenu = new ComboBox<>();
-        foodMenu.getItems().addAll("🍕 Pizza", "🍔 Burger", "🍣 Sushi", "🥗 Salad");
-        foodMenu.setPromptText("Select a Food Item");
+        foodMenu.getItems().addAll("🍕 Pizza - 10$", "🍔 Burger - 5$", "🍣 Sushi - 30$", "🥗 Salad - 20$", "🍗 Fried Chicken - 10$");
+        foodMenu.setPromptText("Select Food Menu");
 
-        ComboBox<String> priceMenu = new ComboBox<>();
-        priceMenu.getItems().addAll("100", "200", "300", "400");
-        priceMenu.setPromptText("Select Price");
+        ComboBox<String> discountMenu = new ComboBox<>();
+        discountMenu.getItems().addAll("Discount - 10%", "Discount - 20%","Discount - 30%", "Discount - 40%","Discount - 50%", "Discount - 60%","Discount - 70%", "Discount - 80%","Discount - 90%", "Discount - 99%");
+        discountMenu.setPromptText("Select Discount");
 
         Button discountButton = new Button("Add Discount");
-        discountButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;");
-        discountButton.setOnMouseEntered(e -> discountButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-weight: bold;"));
-        discountButton.setOnMouseExited(e -> discountButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;"));
+        discountButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
+        discountButton.setOnMouseEntered(e -> discountButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        discountButton.setOnMouseExited(e -> discountButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
 
         Button removeButton = new Button("Remove Discount");
-        removeButton.setStyle("-fx-background-color:rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold;");
-        removeButton.setOnMouseEntered(e -> removeButton.setStyle("-fx-background-color: rgb(200, 20, 5); -fx-text-fill: white; -fx-font-weight: bold;"));
-        removeButton.setOnMouseExited(e -> removeButton.setStyle("-fx-background-color: rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold;"));    
+        removeButton.setStyle("-fx-background-color:rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
+        removeButton.setOnMouseEntered(e -> removeButton.setStyle("-fx-background-color: rgb(200, 20, 5); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        removeButton.setOnMouseExited(e -> removeButton.setStyle("-fx-background-color: rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
 
         Button backButton = new Button("Back");
-        backButton.setStyle("-fx-background-color:rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold;");
-        backButton.setOnMouseEntered(e -> backButton.setStyle("-fx-background-color: rgb(200, 20, 5); -fx-text-fill: white; -fx-font-weight: bold;"));
-        backButton.setOnMouseExited(e -> backButton.setStyle("-fx-background-color: rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold;"));
+        backButton.setStyle("-fx-background-color:rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
+        backButton.setOnMouseEntered(e -> backButton.setStyle("-fx-background-color: rgb(200, 20, 5); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        backButton.setOnMouseExited(e -> backButton.setStyle("-fx-background-color: rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
 
         discountButton.setOnAction(e -> {
             String food = foodMenu.getValue();
-            String price = priceMenu.getValue();
-            if (food != null && price != null) {
-                String promo = food + " ลดเหลือ " + (Integer.parseInt(price) * 0.8) + " บาท"; // ลด 20%
+            String discount = discountMenu.getValue();
+
+            if (food != null && discount != null) {
+                String[] foodParts = food.split(" ");
+                double originalPrice = Double.parseDouble(foodParts[foodParts.length - 1].replace("$", ""));
+                double discountedPrice = originalPrice;
+
+                if (discount.equals("Discount - 10%")) {
+                    discountedPrice = originalPrice * 0.9;
+                } else if (discount.equals("Discount - 20%")) {
+                    discountedPrice = originalPrice * 0.8;
+                } else if (discount.equals("Discount - 30%")) {
+                    discountedPrice = originalPrice * 0.7;
+                } else if (discount.equals("Discount - 40%")) {
+                    discountedPrice = originalPrice * 0.6;
+                } else if (discount.equals("Discount - 50%")) {
+                    discountedPrice = originalPrice * 0.5;
+                } else if (discount.equals("Discount - 60%")) {
+                    discountedPrice = originalPrice * 0.4;
+                } else if (discount.equals("Discount - 70%")) {
+                    discountedPrice = originalPrice * 0.3;
+                } else if (discount.equals("Discount - 80%")) {
+                    discountedPrice = originalPrice * 0.2;
+                } else if (discount.equals("Discount - 90%")) {
+                    discountedPrice = originalPrice * 0.1;
+                } else if (discount.equals("Discount - 99%")) {
+                    discountedPrice = originalPrice * 0.01;
+                }
+
+                String formatPrice = (discountedPrice % 1 == 0) ? String.format("%.0f", discountedPrice) : String.format("%.2f", discountedPrice);
+                String formatLabel = discount.split(" - ")[1];
+
+                String promo = food + " ลดเหลือ " + formatPrice + "$ (" + formatLabel + ")";
                 promoList.add(promo);
                 promoListView.getItems().setAll(promoList);
             }
@@ -68,14 +98,14 @@ public class PromotionUI {
             new RestaurantUI(primaryStage, null);
         });
 
-        HBox selectBox = new HBox(5, foodMenu, priceMenu);
+        HBox selectBox = new HBox(5, foodMenu, discountMenu);
         HBox buttonBox = new HBox(10, discountButton, removeButton);
         VBox promoBox = new VBox(5, promoListView);
 
         root.getChildren().addAll(selectBox, buttonBox, promoBox, backButton);
         primaryStage.setScene(new Scene(root, 300, 300));
-        primaryStage.setTitle("Promotion Manager"); 
+        primaryStage.setTitle("Promotion Manager");
         primaryStage.setResizable(false);
-        primaryStage.show();    
+        primaryStage.show();
     }
 }

@@ -25,9 +25,9 @@ public class MenuUI {
         FoodMenuLabel.setStyle("-fx-font-weight: bold;");
 
         Button BackButton = new Button("Back");
-        BackButton.setStyle("-fx-background-color:rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold;");
-        BackButton.setOnMouseEntered(e -> BackButton.setStyle("-fx-background-color: rgb(200, 20, 5); -fx-text-fill: white; -fx-font-weight: bold;"));
-        BackButton.setOnMouseExited(e -> BackButton.setStyle("-fx-background-color: rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold;"));
+        BackButton.setStyle("-fx-background-color:rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
+        BackButton.setOnMouseEntered(e -> BackButton.setStyle("-fx-background-color: rgb(200, 20, 5); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        BackButton.setOnMouseExited(e -> BackButton.setStyle("-fx-background-color: rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         BackButton.setId("BackButton");
 
         // HBox buttonBox = new HBox(10, AddFoodButton, MenuButton);
