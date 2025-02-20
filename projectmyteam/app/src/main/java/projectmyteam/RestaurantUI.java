@@ -39,33 +39,33 @@ public class RestaurantUI {
         FoodPriceField.setId("FoodPriceField");
 
         Button AddFoodButton = new Button("Add");
-        AddFoodButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
+        AddFoodButton.setStyle("-fx-background-color: linear-gradient(to bottom,rgb(40, 232, 46),rgb(30, 134, 4)); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
         AddFoodButton.setOnMouseEntered(e -> AddFoodButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
-        AddFoodButton.setOnMouseExited(e -> AddFoodButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        AddFoodButton.setOnMouseExited(e -> AddFoodButton.setStyle("-fx-background-color: linear-gradient(to bottom,rgb(40, 232, 46),rgb(30, 134, 4)); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         AddFoodButton.setId("AddFoodButton");
 
         Button MenuButton = new Button("Menu");
-        MenuButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
+        MenuButton.setStyle("-fx-background-color: linear-gradient(to bottom,rgb(40, 232, 46),rgb(30, 134, 4)); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
         MenuButton.setOnMouseEntered(e -> MenuButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
-        MenuButton.setOnMouseExited(e -> MenuButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        MenuButton.setOnMouseExited(e -> MenuButton.setStyle("-fx-background-color: linear-gradient(to bottom,rgb(40, 232, 46),rgb(30, 134, 4)); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         MenuButton.setId("MenuButton");
 
         Button WorkerButton = new Button("Worker");
-        WorkerButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
+        WorkerButton.setStyle("-fx-background-color: linear-gradient(to bottom,rgb(40, 232, 46),rgb(30, 134, 4)); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
         WorkerButton.setOnMouseEntered(e -> WorkerButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
-        WorkerButton.setOnMouseExited(e -> WorkerButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        WorkerButton.setOnMouseExited(e -> WorkerButton.setStyle("-fx-background-color: linear-gradient(to bottom,rgb(40, 232, 46),rgb(30, 134, 4)); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         WorkerButton.setId("WorkerButton");
 
         Button PromotionButton = new Button("Promo");
-        PromotionButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
+        PromotionButton.setStyle("-fx-background-color: linear-gradient(to bottom,rgb(40, 232, 46),rgb(30, 134, 4)); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
         PromotionButton.setOnMouseEntered(e -> PromotionButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
-        PromotionButton.setOnMouseExited(e -> PromotionButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        PromotionButton.setOnMouseExited(e -> PromotionButton.setStyle("-fx-background-color: linear-gradient(to bottom,rgb(40, 232, 46),rgb(30, 134, 4)); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         PromotionButton.setId("PromotionButton");
 
         Button LogOutButton = new Button("Back");
-        LogOutButton.setStyle("-fx-background-color:rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
+        LogOutButton.setStyle("-fx-background-color: linear-gradient(to bottom,rgb(255, 0, 0),rgb(165, 14, 14)); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
         LogOutButton.setOnMouseEntered(e -> LogOutButton.setStyle("-fx-background-color: rgb(200, 20, 5); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
-        LogOutButton.setOnMouseExited(e -> LogOutButton.setStyle("-fx-background-color: rgb(246, 28, 9); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        LogOutButton.setOnMouseExited(e -> LogOutButton.setStyle("-fx-background-color: linear-gradient(to bottom,rgb(255, 0, 0),rgb(165, 14, 14)); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         LogOutButton.setId("LogOutButton");
 
         HBox buttonBox = new HBox(10,LogOutButton, AddFoodButton, MenuButton, WorkerButton, PromotionButton);

@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 public class LoginUI {
     public LoginUI(Stage primaryStage) {
         VBox root = new VBox(10);
-        root.setStyle("-fx-padding: 5; " + "-fx-background-color: linear-gradient(to bottom, #FFD700, #FF4500);");
+        root.setStyle("-fx-padding: 5; -fx-background-color: linear-gradient(to bottom, #FFD700, #FF4500);");
         root.requestFocus();
         root.setOnMouseClicked(e -> root.requestFocus());
 
@@ -30,17 +30,17 @@ public class LoginUI {
         passwordLabel.setStyle("-fx-font-weight: bold;");
             
         TextField usernameField = new TextField();
-        usernameField.setStyle("-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: gray; " + "-fx-border-width: 1px;");
+        usernameField.setStyle("-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: gray; -fx-border-width: 1px;");
         usernameField.setPromptText("Enter username");
         usernameField.setId("usernameField");
         
         PasswordField passwordField = new PasswordField();
-        passwordField.setStyle("-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: gray; " + "-fx-border-width: 1px;");
+        passwordField.setStyle("-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: gray; -fx-border-width: 1px;");
         passwordField.setPromptText("Enter password");
         passwordField.setId("passwordField");
 
         TextField visiblePasswordField = new TextField();
-        visiblePasswordField.setStyle("-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: gray; " + "-fx-border-width: 1px;");
+        visiblePasswordField.setStyle("-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: gray; -fx-border-width: 1px;");
         visiblePasswordField.setPromptText("Enter password");
         visiblePasswordField.setId("visiblePasswordField");
 
@@ -50,21 +50,21 @@ public class LoginUI {
         eyeButton.setId("eyeButton");
 
         Button loginButton = new Button("Login");
-        loginButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
+        loginButton.setStyle("-fx-background-color: linear-gradient(to bottom,rgb(40, 232, 46),rgb(30, 134, 4)); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
         loginButton.setOnMouseEntered(e -> loginButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
-        loginButton.setOnMouseExited(e -> loginButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        loginButton.setOnMouseExited(e -> loginButton.setStyle("-fx-background-color: linear-gradient(to bottom,rgb(40, 232, 46),rgb(30, 134, 4)); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         loginButton.setId("loginButton");
         
         Button createButton = new Button("Create Account");
-        createButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
+        createButton.setStyle("-fx-background-color: linear-gradient(to bottom,rgb(40, 232, 46),rgb(30, 134, 4)); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
         createButton.setOnMouseEntered(e -> createButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
-        createButton.setOnMouseExited(e -> createButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        createButton.setOnMouseExited(e -> createButton.setStyle("-fx-background-color: linear-gradient(to bottom,rgb(40, 232, 46),rgb(30, 134, 4)); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         createButton.setId("createButton");
 
         Button bypassButton = new Button("Bypass Login");
-        bypassButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
+        bypassButton.setStyle("-fx-background-color: linear-gradient(to bottom,rgb(40, 232, 46),rgb(30, 134, 4)); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;");
         bypassButton.setOnMouseEntered(e -> bypassButton.setStyle("-fx-background-color:rgb(0, 41, 247); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
-        bypassButton.setOnMouseExited(e -> bypassButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
+        bypassButton.setOnMouseExited(e -> bypassButton.setStyle("-fx-background-color: linear-gradient(to bottom,rgb(40, 232, 46),rgb(30, 134, 4)); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20; -fx-border-radius: 20;"));
         bypassButton.setId("bypassButton");
 
         HBox buttonBox = new HBox(10, loginButton, createButton, bypassButton);
